@@ -1,19 +1,25 @@
-.header {
+.main_header {
     background-color: white;
-    width: auto;
+    width: 100%;
     height: 60px;
+
+    position: fixed;
+    top: 0px;
+
+    z-index: 9999;
 }
 
-#header{
+#main_header{
     border-bottom-width: 1px;
-    border-bottom-color: gray;
+    border-bottom-color: #e0e0e0;
     border-bottom-style: solid;
 }
 
 .header_body {
-    width: 935px;
+    width: 975px;
     height: 100%;
     margin: auto;
+    padding: 0 20px 0 20px;
 
     display: flex;
     flex-direction: row;
@@ -26,6 +32,11 @@
         width: 100%
     }
 }
+@media (max-width: 640px){
+    .search_box {
+        display: none;
+    }
+}
 
 
 
@@ -35,7 +46,7 @@
 }
 
 .search_box{
-    width: 268px;
+    width: 270px;
     height: 36px;
 
     background-color: #f0f0f0;
@@ -78,7 +89,156 @@
 }
 
 .header_icon_box{
-    width: 100px;
-    height: 36px;
-    background-color: green;
+    width: 270px;
+    height: 24px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.img_circle {
+    border-radius: 50%;
+}
+
+.main_body{
+    width: 935px;
+    height: 1000px;
+
+    margin: 100px auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: normal;
+    justify-content: space-between;
+
+    position: relative;
+}
+
+.post_box{
+    width: 614px;
+    height: 100px;
+    background-color: antiquewhite;
+    margin: 0px 28px 0px 0px;
+}
+
+.profile_box{
+    width: 293px;
+    height: 500px;
+    background-color: white;
+
+    position: fixed;
+    z-index: 9999;
+}
+
+.my_account {
+    width: 100%;
+    height: 56px;
+    margin: 18px 0px 10px 0px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: normal;
+    justify-content: space-between;
+}
+
+.my_profile {
+    width: 56px;
+    height: 100%;
+    cursor:pointer;
+}
+
+.my_id {
+    width: 187px;
+    height: 100%;
+    font-size: 15px;
+    padding-top: 12px;
+    cursor:pointer;
+}
+
+.my_trans_button {
+    width: 24px;
+    height: 100%;
+
+    font-weight: bolder;
+    font-size: 12px;
+    padding-top: 20px;
+}
+
+.other_accounts {
+    width: 100%;
+    height: 291px;
+    margin-top: 18px;
+}
+
+
+.other_accounts_title {
+    width: 100%;
+    height: 19px;
+    margin-top: 18px;
+
+    font-size: 14px;
+    font-weight: bolder;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.other_accounts_body {
+    width: 100%;
+    height: 256px;
+    padding-top: 8px;
+}
+
+
+.other_account {
+    width: 100%;
+    height: 48px;
+    padding: 8px 0px 0px 8px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: normal;
+    justify-content: space-between;
+}
+
+.other_profile {
+    width: 48px;
+    height: 100%;
+    cursor:pointer;
+}
+
+.other_id {
+    width: 201px;
+    height: 100%;
+    font-size: 14px;
+    padding-top: 8px;
+    cursor:pointer;
+}
+
+.other_follow_button {
+    width: 40px;
+    height: 100%;
+
+    font-weight: bolder;
+    font-size: 12px;
+
+    padding-top: 12px;
+}
+
+#footer {
+    border-top-width: 1px;
+    border-top-color: #e0e0e0;
+    border-top-style: solid;
+}
+
+.footer {
+    padding-top: 10px;
+    font-size: 12px;
+    color: #c7c7c7;
+}
+.footer > a {
+    text-decoration: none;
+    color: #c7c7c7;
 }
