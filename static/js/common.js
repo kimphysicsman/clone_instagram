@@ -37,14 +37,26 @@ function move_story_slide(vector) {
     }
 
     if (vector == 1) {
+        if (margin_num == 0) {
+            $('#bg_slide_button_left').css("opacity", "1")
+            $('#bg_slide_button_left').css("display", "block")
+        }
         margin_num = margin_num - move_margin
         if (margin_num < -1 * max_margin) {
             margin_num = -1 * max_margin
+            $('#bg_slide_button_right').css("opacity", "0")
+            $('#bg_slide_button_right').css("display", "none")
         }
     } else {
+        if (margin_num == -1 * max_margin) {
+            $('#bg_slide_button_right').css("opacity", "1")
+            $('#bg_slide_button_right').css("display", "block")
+        }
         margin_num = margin_num + move_margin
         if (margin_num > 0) {
             margin_num = 0
+            $('#bg_slide_button_left').css("opacity", "0")
+            $('#bg_slide_button_left').css("display", "none")
         }
     }
     let update_margin = (margin_num).toString() + "px"
