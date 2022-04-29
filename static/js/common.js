@@ -18,6 +18,45 @@ function update_profile_margin() {
     $('#profile_box').css("right", str)
 }
 
+// 스토리 슬라이드 함수
+// vector : 슬라이드 방향 - 0:왼쪽, 1:오른쪽
+function move_story_slide(vector) {
+    let margin_text = $('#stories').css('margin-left')
+    let width_text = $('#stories').css('width')
+    let box_text = $('#card').css('width')
+
+    let margin_num = Number(margin_text.slice(0, -2))
+    let width_num = Number(width_text.slice(0, -2))
+    let box_num = Number(box_text.slice(0, -2))
+
+    let max_margin = 0  // 최대 마진 값
+    let move_margin = 150   // 한번 이동할 때 움직일 마진 값
+
+    if (width_num > box_num) {
+         max_margin = width_num - box_num
+    }
+
+    if (vector == 1) {
+        margin_num = margin_num - move_margin
+        if (margin_num < -1 * max_margin) {
+            margin_num = -1 * max_margin
+        }
+    } else {
+        margin_num = margin_num + move_margin
+        if (margin_num > 0) {
+            margin_num = 0
+        }
+    }
+    let update_margin = (margin_num).toString() + "px"
+
+    $('#stories').css('margin-left', update_margin)
+
+    console.log(margin_text, width_text, box_text)
+    console.log(margin_num, width_num, box_num)
+    console.log(max_margin, update_margin)
+}
+
+
 // 로딩시 profile 마진값 다시 계산
 $(document).ready(function () {
     update_profile_margin()
