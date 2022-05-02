@@ -1,4 +1,3 @@
-
 // 검색창 활성화시키는 함수
 function active_search_input_box() {
     $('#search_icon').css("display", "none")
@@ -12,7 +11,7 @@ function update_profile_margin() {
     let screen_width = $(window).width()
     let self_width = $('#main_body').width()
     let margin = screen_width - self_width
-    let margin_right = (margin/2).toString()
+    let margin_right = (margin / 2).toString()
 
     let str = margin_right + "px"
     $('#profile_box').css("right", str)
@@ -33,7 +32,7 @@ function move_story_slide(vector) {
     let move_margin = 150   // 한번 이동할 때 움직일 마진 값
 
     if (width_num > box_num) {
-         max_margin = width_num - box_num
+        max_margin = width_num - box_num
     }
 
     if (vector == 1) {
@@ -62,34 +61,40 @@ function move_story_slide(vector) {
     let update_margin = (margin_num).toString() + "px"
 
     $('#stories').css('margin-left', update_margin)
-
-    console.log(margin_text, width_text, box_text)
-    console.log(margin_num, width_num, box_num)
-    console.log(max_margin, update_margin)
 }
 
+// 포스트 텍스트 더보기 버튼 함수
+function view_post_text_more() {
+    $('#post_text_btn').css('display', 'none')
+    $('#post_text_more').css('display', 'block')
+}
 
 // 로딩시 profile 마진값 다시 계산
 $(document).ready(function () {
     update_profile_margin()
 })
 
-$(function(){
-    // 마우스 클릭한 후
-    // 검색창에 클릭한 것이 아니면
-    // 활성화된 검색창을 이전 상태로
-    $(document).mouseup(function( e ){
-    if( !($('#search_input_box').is(":focus")) ) {
+$(function () {
+    // 검색창에서 focus를 다른 곳으로 옮길 때
+    $('#search_input_box').blur(()=>{
         $('#search_icon').css("display", "block")
         $('#search_active_button').css("display", "block")
         $('#search_input_box').css("width", "70%")
-    }
-    });
+    })
+
 
     // 화면 사이즈 변경 시
     // profile 마진값 다시 계산
-    $(window).resize(function() {
+    $(window).resize(function () {
         update_profile_margin()
     });
 
+    $('#post_comment_input').on('focus blur keyup', () => {
+        if($('#post_comment_input').val() === ""){
+            $('#post_comment_input_btn').css('opacity', '0.5')
+        } else {
+            $('#post_comment_input_btn').css('opacity', '1')
+        }
+    })
 });
+
