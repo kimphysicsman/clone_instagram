@@ -64,9 +64,9 @@ function move_story_slide(vector) {
 }
 
 // 포스트 텍스트 더보기 버튼 함수
-function view_post_text_more() {
-    $('#post_text_btn').css('display', 'none')
-    $('#post_text_more').css('display', 'block')
+function view_post_text_more(name) {
+    $(`.post_text_btn[name=${name}]`).css('display', 'none')
+    $(`.post_text_more[name=${name}]`).css('display', 'block')
 }
 
 // 로딩시 profile 마진값 다시 계산
@@ -89,11 +89,14 @@ $(function () {
         update_profile_margin()
     });
 
-    $('#post_comment_input').on('focus blur keyup', () => {
-        if($('#post_comment_input').val() === ""){
-            $('#post_comment_input_btn').css('opacity', '0.5')
+    // 현재 선택된 댓글창에 상태에 따라 게시 버튼 효과 변경
+    $('.post_comment_input').on('focus blur keyup', () => {
+        let name = $(':focus').attr('name');
+
+        if ($(`.post_comment_input[name='${name}']`).val() === "") {
+            $(`.post_comment_input_btn[name='${name}']`).css('opacity', '0.5')
         } else {
-            $('#post_comment_input_btn').css('opacity', '1')
+            $(`.post_comment_input_btn[name='${name}']`).css('opacity', '1')
         }
     })
 });

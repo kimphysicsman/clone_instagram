@@ -337,6 +337,8 @@
 .posts {
     width: 100%;
     height: auto;
+
+    margin-bottom: 24px;
 }
 
 .post {
@@ -393,7 +395,7 @@
     width: 100%;
     height: 54px;
 
-    margin: 0;
+    margin: -34px 0px 0px 0px;
     padding: 6px 12px 8px 15px;
 
     display: flex;
@@ -416,10 +418,19 @@
 }
 
 .post_icon_box_slide {
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height: 34px;
 
+    padding-top: 10px;
+}
 
+.post_dots {
+    margin: auto;
+
+    display: flex;
+    flex-direction: row;
+    align-items: normal;
+    justify-content: center;
 }
 
 .post_icon_box_bookmark {
@@ -513,6 +524,10 @@
 
     opacity: 0.5;
 }
+
+
+
+
 
 @media (max-width: 935px){
     .header_body {
